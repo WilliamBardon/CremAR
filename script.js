@@ -18,7 +18,7 @@ window.onload = () => {
         // imgData = document.getElementsByClassName("a-canvas")[0].toDataURL(strMime);
 
         // saveFile(imgData.replace(strMime, strDownloadMime), "test.jpg");
-        html2canvas(document.getElementById("arjs-video")).then((canvas) => {
+        html2canvas(document.getElementById("body")).then((canvas) => {
             let a = document.createElement("a");
             a.download = "cremaAR.png";
             a.href = canvas.toDataURL("image/png");
