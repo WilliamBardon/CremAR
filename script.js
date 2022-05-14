@@ -1,4 +1,5 @@
 window.onload = () => {
+    loadData();
     setInterval(() => {
         findDistance();
     }, 10000);
@@ -11,19 +12,62 @@ window.onload = () => {
 
 }
 
+function loadData() {
+    // var json = require('./data.json');
+    // console.log("json", json);
+    fetch("./data.json")
+        .then(response => {
+            return response.json();
+        })
+        .then(jsondata => {
+            console.log(jsondata);
+            renderModels(jsondata.models);
+        });
+}
+
+function renderModels(models) {
+    let scene = document.querySelector('a-scene');
+
+    models.forEach((model) => {
+        let box = document.createElement('a-box');
+        box.id = model.id;
+        box.setAttribute('gps-projected-entity-place', `latitude: ${model.location.lat}; longitude: ${model.location.lng};`);
+        box.setAttribute('material', `color: ${model.color}`);
+        box.setAttribute('scale', '10 10 10');
+        //box.setAttribute('animation-mixer', '');
+        console.log("box", box)
+        scene.appendChild(box);
+    });
+}
+
 function findDistance() {
-    const distanceMsg = document.getElementById('box-duomo').getAttribute('distanceMsg');
+    let cam = document.querySelector("[camera]");
+    let box = document.getElementById('box-duomo');
+    let camPos = cam.object3D.position;
+    let boxPos = box.object3D.position;
+    let distance = camPos.distanceTo(boxPos);
+    console.log("distance", distance);
     const info = document.getElementById('distance')
-    info.innerHTML = distanceMsg;
+    info.innerHTML = distance;
+
+    // if (distance < 5) {
+    //     // camera closer than 5m, do something
+    // }
+    // const distanceMsg = document.getElementById('box-duomo').getAttribute('distanceMsg');
+    // console.log("distanceMsg - Duomo", distanceMsg);
+    // const info = document.getElementById('distance')
+    // info.innerHTML = distanceMsg;
 
     const distanceMD = document.getElementById('box-md').getAttribute('distanceMsg');
+    console.log("distanceMsg - MD", distanceMD);
     const infoMD = document.getElementById('distance-md')
     infoMD.innerHTML = distanceMD;
 
-    const distanceRivolta = document.getElementById('box-rivolta').getAttribute('distanceMsg');
-    const infoRivolta = document.getElementById('distance-rivolta')
-    infoRivolta.innerHTML = distanceRivolta;
 
+    // const distanceRivolta = document.getElementById('box-rivolta').getAttribute('distanceMsg');
+    // console.log("distanceMsg - Rivolta", distanceRivolta);
+    // const infoRivolta = document.getElementById('distance-rivolta')
+    // infoRivolta.innerHTML = distanceRivolta;
 
     // alert(distanceMsg);
 }

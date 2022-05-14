@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>AR.js Basic Projected Camera Example</title>
+    <title>CremAR</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <!-- Look-at component. We don't need this now, but we will later. -->
@@ -30,17 +30,17 @@
         renderer='antialias: true; alpha: true' embedded>
         <a-camera gps-projected-camera="gpsMinDistance: 1" rotation-reader camera="far: 2; fov: 50"></a-camera>
         <!-- Piazza Duomo Cema -->
-        <a-box id="box-duomo" gps-projected-entity-place='latitude: 45.3637721; longitude: 9.6959807'
-            material='color: red' scale='10 10 10'></a-box>
+        <!-- <a-box id="box-duomo" gps-projected-entity-place='latitude: 45.3637721; longitude: 9.6959807'
+            material='color: red' scale='10 10 10'></a-box> -->
         <!-- Babar Cema -->
-        <a-box gps-projected-entity-place='latitude: 45.3630119; longitude: 9.6871358' material='color: yellow'
-            scale='1 1 1'></a-box>
+        <!-- <a-box gps-projected-entity-place='latitude: 45.3630119; longitude: 9.6871358' material='color: yellow'
+            scale='1 1 1'></a-box> -->
         <!-- MD Offanengo -->
-        <a-box id="box-md" gps-projected-entity-place='latitude: 45.3765178; longitude: 9.7400806'
-            material='color: green' scale='10 10 10'></a-box>
+        <!-- <a-box id="box-md" gps-projected-entity-place='latitude: 45.3765178; longitude: 9.7400806'
+            material='color: green' scale='10 10 10'></a-box> -->
         <!-- Box a Rivolta -->
-        <a-box id="box-rivolta" gps-projected-entity-place='latitude: 45.7273158; longitude: 9.5357159'
-            material='color: black' scale='10 10 10'></a-box>
+        <!-- <a-box id="box-rivolta" gps-projected-entity-place='latitude: 45.7273158; longitude: 9.5357159'
+            material='color: black' scale='10 10 10'></a-box> -->
         <!-- <a-entity gltf-model="#cyberpunk" gps-projected-entity-place='latitude: 45.363127; longitude: 9.686927' scale="3 3 3" rotation="0 0 0" position='0 .1 0'></a-entity> -->
 
     </a-scene>
