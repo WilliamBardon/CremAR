@@ -17,7 +17,7 @@ function findDistance() {
     info.innerHTML = distanceMsg;
 
     const distanceMD = document.getElementById('box-md').getAttribute('distanceMsg');
-    const infoMD = document.getElementById('distance.md')
+    const infoMD = document.getElementById('distance-md')
     infoMD.innerHTML = distanceMD;
 
 
