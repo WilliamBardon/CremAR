@@ -18,6 +18,7 @@
     </a-assets> -->
 
     <div class="centered positions">Il box in Duomo è a : <div id="distance"></div></div>
+    <div class="centered-center positions">Il box all MD è a : <div id="distance-md"></div></div>
     <button id="gps-button" class="top-centered positions"> Posizione GPS corrente</button>
 
     <a-scene vr-mode-ui="enabled: false" arjs='sourceType: webcam; videoTexture: false; debugUIEnabled: false; '
@@ -29,6 +30,9 @@
         <!-- Babar Cema -->
         <a-box gps-projected-entity-place='latitude: 45.3630119; longitude: 9.6871358' material='color: yellow'
         scale='1 1 1'></a-box>
+        <!-- MD Offanengo -->
+        <a-box id="box-md" gps-projected-entity-place='latitude: 45.3765178; longitude: 9.7400806' material='color: green'
+        scale='10 10 10'></a-box>
         <!-- <a-entity gltf-model="#cyberpunk" gps-projected-entity-place='latitude: 45.363127; longitude: 9.686927' scale="3 3 3" rotation="0 0 0" position='0 .1 0'></a-entity> -->
 
     </a-scene>

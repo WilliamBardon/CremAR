@@ -22,6 +22,22 @@
     text-shadow: 0 0 2px black;
 }
 
+.centered-center {
+    height: 10%;
+    justify-content: center;
+    position: fixed;
+    bottom: 30%;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin: 0px auto;
+    left: 0;
+    right: 0;
+    color: white;
+    font-weight: 800;
+    text-shadow: 0 0 2px black;
+}
+
 .top-centered {
     justify-content: center;
     position: fixed;

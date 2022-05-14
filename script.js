@@ -14,8 +14,13 @@ window.onload = () => {
 function findDistance() {
     const distanceMsg = document.getElementById('box-duomo').getAttribute('distanceMsg');
     const info = document.getElementById('distance')
-
     info.innerHTML = distanceMsg;
+
+    const distanceMD = document.getElementById('box-md').getAttribute('distanceMsg');
+    const infoMD = document.getElementById('distance.md')
+    infoMD.innerHTML = distanceMD;
+
+
     // alert(distanceMsg);
 }
 
