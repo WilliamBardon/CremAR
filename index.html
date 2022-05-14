@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AR.js Basic Projected Camera Example</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <!-- Look-at component. We don't need this now, but we will later. -->
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
-<body>
-    <h1>Hello Gnari !</h1>
-    
+
+<body style='margin : 0px; overflow: hidden;'>
+    <!-- <a-assets>
+        <a-asset-item id="cyberpunk" src="./assets/cyberpunk/scene.gltf"></a-asset-item>
+    </a-assets> -->
+
+    <div id="positions" class="centered positions"></div>
+    <button id="gps-button" class="centered positions"> Dammi il GPS </button>
+
+    <a-scene vr-mode-ui="enabled: false" arjs='sourceType: webcam; videoTexture: false; debugUIEnabled: false; '
+        renderer='antialias: true; alpha: true' embedded>
+        <a-camera gps-projected-camera="gpsMinDistance: 1" rotation-reader camera="far: 2; fov: 50" ></a-camera>
+        <!-- Piazza Duomo Cema -->
+        <a-box gps-projected-entity-place='latitude: 45.3637721; longitude: 9.6959807' material='color: red'
+            scale='10 10 10'></a-box>
+        <!-- Babar Cema -->
+        <a-box gps-projected-entity-place='latitude: 45.3630119; longitude: 9.6871358' material='color: yellow'
+        scale='1 1 1'></a-box>
+        <!-- <a-entity gltf-model="#cyberpunk" gps-projected-entity-place='latitude: 45.363127; longitude: 9.686927' scale="3 3 3" rotation="0 0 0" position='0 .1 0'></a-entity> -->
+
+    </a-scene>
 </body>
+
 </html>
