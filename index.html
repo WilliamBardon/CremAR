@@ -17,14 +17,14 @@
         <a-asset-item id="cyberpunk" src="./assets/cyberpunk/scene.gltf"></a-asset-item>
     </a-assets> -->
 
-    <div id="positions" class="centered positions"></div>
-    <button id="gps-button" class="centered positions"> Dammi il GPS </button>
+    <div id="distance" class="centered positions"></div>
+    <!-- <button id="gps-button" class="centered positions"> Posizione GPS corrente</button> -->
 
     <a-scene vr-mode-ui="enabled: false" arjs='sourceType: webcam; videoTexture: false; debugUIEnabled: false; '
         renderer='antialias: true; alpha: true' embedded>
         <a-camera gps-projected-camera="gpsMinDistance: 1" rotation-reader camera="far: 2; fov: 50" ></a-camera>
         <!-- Piazza Duomo Cema -->
-        <a-box gps-projected-entity-place='latitude: 45.3637721; longitude: 9.6959807' material='color: red'
+        <a-box id="box-duomo" gps-projected-entity-place='latitude: 45.3637721; longitude: 9.6959807' material='color: red'
             scale='10 10 10'></a-box>
         <!-- Babar Cema -->
         <a-box gps-projected-entity-place='latitude: 45.3630119; longitude: 9.6871358' material='color: yellow'

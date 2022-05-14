@@ -1,7 +1,7 @@
 window.onload = () => {
     setInterval(() => {
         findDistance();
-    }, 1000);
+    }, 10000);
 
     // getLocation();
     let gps_button = document.getElementById('gps-button');
@@ -12,11 +12,11 @@ window.onload = () => {
 }
 
 function findDistance() {
-    const distanceMsg = document.getElementById('entity-avenir').getAttribute('distanceMsg');
-    const info = document.getElementById('positions')
+    const distanceMsg = document.getElementById('box-duomo').getAttribute('distanceMsg');
+    const info = document.getElementById('distance')
 
     info.innerHTML = distanceMsg;
-    // alert(distanceMsg);
+    alert(distanceMsg);
 }
 
 
