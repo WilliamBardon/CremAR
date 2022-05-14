@@ -16,7 +16,7 @@ function findDistance() {
     const info = document.getElementById('distance')
 
     info.innerHTML = distanceMsg;
-    alert(distanceMsg);
+    // alert(distanceMsg);
 }
 
 
