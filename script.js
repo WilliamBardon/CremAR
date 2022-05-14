@@ -20,6 +20,10 @@ function findDistance() {
     const infoMD = document.getElementById('distance-md')
     infoMD.innerHTML = distanceMD;
 
+    const distanceRivolta = document.getElementById('box-rivolta').getAttribute('distanceMsg');
+    const infoRivolta = document.getElementById('distance-rivolta')
+    infoRivolta.innerHTML = distanceRivolta;
+
 
     // alert(distanceMsg);
 }

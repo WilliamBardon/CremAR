@@ -19,6 +19,8 @@
 
     <div class="centered positions">Il box in Duomo è a : <div id="distance"></div></div>
     <div class="centered-center positions">Il box all MD è a : <div id="distance-md"></div></div>
+    <div class="centered-up positions">Il box a Rivolta è a : <div id="distance-rivolta"></div></div>
+
     <button id="gps-button" class="top-centered positions"> Posizione GPS corrente</button>
 
     <a-scene vr-mode-ui="enabled: false" arjs='sourceType: webcam; videoTexture: false; debugUIEnabled: false; '
@@ -33,6 +35,9 @@
         <!-- MD Offanengo -->
         <a-box id="box-md" gps-projected-entity-place='latitude: 45.3765178; longitude: 9.7400806' material='color: green'
         scale='10 10 10'></a-box>
+        <!-- Box a Rivolta -->
+        <a-box id="box-rivolta" gps-projected-entity-place='latitude: 45.7273158; longitude: 9.5357159' material='color: pink'
+        scale='5 5 5'></a-box>
         <!-- <a-entity gltf-model="#cyberpunk" gps-projected-entity-place='latitude: 45.363127; longitude: 9.686927' scale="3 3 3" rotation="0 0 0" position='0 .1 0'></a-entity> -->
 
     </a-scene>
