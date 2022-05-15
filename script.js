@@ -11,35 +11,46 @@ window.onload = () => {
     }
 
     let take_snapshot_button = document.getElementById('take-snapshot');
-    
-    take_snapshot_button.onclick = function(){
+
+    take_snapshot_button.onclick = function () {
         // var strMime = "image/jpeg";
         // // imgData = renderer.domElement.toDataURL(strMime);
-        // imgData = document.getElementsByClassName("a-canvas")[0].toDataURL(strMime);
+        // var imgData = document.getElementsByClassName("a-canvas")[0].toDataURL();
+        let canvas = document.createElement('canvas');
+        let video = document.getElementById("arjs-video");
 
-        // saveFile(imgData.replace(strMime, strDownloadMime), "test.jpg");
-        html2canvas(document.getElementById("body")).then((canvas) => {
-            let a = document.createElement("a");
-            a.download = "cremaAR.png";
-            a.href = canvas.toDataURL("image/png");
-            a.click(); // MAY NOT ALWAYS WORK!
-          });
+        canvas.width = video.clientWidth;
+        canvas.height = video.clientHeight;
+
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        let imgData = canvas.toDataURL('image/png');
+
+        console.log("imgData", imgData)
+        saveFile(imgData, "test.png");
+        // html2canvas(document.getElementById("body")).then((canvas) => {
+        //     let a = document.createElement("a");
+        //     a.download = "cremaAR.png";
+        //     a.href = canvas.toDataURL("image/png");
+        //     a.click(); // MAY NOT ALWAYS WORK!
+        //   });
     };
 }
 
-// var saveFile = function (strData, filename) {
-//     console.log("entro in save file")
-//     var link = document.createElement('a');
-//     if (typeof link.download === 'string') {
-//         document.body.appendChild(link); //Firefox requires the link to be in the body
-//         link.download = filename;
-//         link.href = strData;
-//         link.click();
-//         document.body.removeChild(link); //remove the link when done
-//     } else {
-//         location.replace(uri);
-//     }
-// }
+var saveFile = function (strData, filename) {
+    console.log("entro in save file")
+    var link = document.createElement('a');
+    if (typeof link.download === 'string') {
+        document.body.appendChild(link); //Firefox requires the link to be in the body
+        link.download = filename;
+        link.href = strData;
+        link.click();
+        document.body.removeChild(link); //remove the link when done
+    } else {
+        location.replace(uri);
+    }
+}
 
 function loadData() {
     // var json = require('./data.json');
