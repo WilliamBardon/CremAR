@@ -16,19 +16,29 @@ window.onload = () => {
         // var strMime = "image/jpeg";
         // // imgData = renderer.domElement.toDataURL(strMime);
         // var imgData = document.getElementsByClassName("a-canvas")[0].toDataURL();
-        let canvas = document.createElement('canvas');
+
+
+        //document.querySelector('a-scene').components.screenshot.capture('perspective')
+
+
+        let canvasNew = document.createElement('canvas');
+        let canvas = document.getElementsByClassName("a-canvas")[0];
         let video = document.getElementById("arjs-video");
 
-        canvas.width = video.clientWidth;
-        canvas.height = video.clientHeight;
+        canvasNew.width = video.clientWidth;
+        canvasNew.height = video.clientHeight;
 
-        let ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        let ctx = canvasNew.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
+        ctx.drawImage(canvas, 0, 0, canvasNew.width, canvasNew.height);
 
-        let imgData = canvas.toDataURL('image/png');
+        let imgData = canvasNew.toDataURL('image/png');
 
         console.log("imgData", imgData)
         saveFile(imgData, "test.png");
+
+
+
         // html2canvas(document.getElementById("body")).then((canvas) => {
         //     let a = document.createElement("a");
         //     a.download = "cremaAR.png";
