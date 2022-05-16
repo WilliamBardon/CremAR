@@ -13,7 +13,8 @@ window.onload = () => {
     let take_snapshot_button = document.getElementById('take-snapshot');
 
     take_snapshot_button.onclick = function () {
-        // var strMime = "image/jpeg";
+        var strMime = "image/jpeg";
+        var strDownloadMime = "image/octet-stream";
         // // imgData = renderer.domElement.toDataURL(strMime);
         // var imgData = document.getElementsByClassName("a-canvas")[0].toDataURL();
 
@@ -22,7 +23,8 @@ window.onload = () => {
 
 
         let canvasNew = document.createElement('canvas');
-        let canvas = document.getElementsByClassName("a-canvas")[0];
+        // let canvas = document.getElementsByClassName("a-canvas")[0];
+        let canvas = document.getElementById("scene");
         let video = document.getElementById("arjs-video");
 
         canvasNew.width = video.clientWidth;
@@ -30,12 +32,22 @@ window.onload = () => {
 
         let ctx = canvasNew.getContext('2d');
         ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
-        ctx.drawImage(canvas, 0, 0, canvasNew.width, canvasNew.height);
+        // ctx.drawImage(canvas, 0, 0, canvasNew.width, canvasNew.height);
 
         let imgData = canvasNew.toDataURL('image/png');
 
         console.log("imgData", imgData)
         saveFile(imgData, "test.png");
+
+        renderer = new THREE.WebGLRenderer({
+            preserveDrawingBuffer: true
+        });
+        renderer.setSize(video.innerWidth, video.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        imgData = renderer.domElement.toDataURL(strMime);
+
+        saveFile(imgData.replace(strMime, strDownloadMime), "test2.jpg");
 
 
 
