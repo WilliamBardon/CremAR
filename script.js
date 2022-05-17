@@ -1,4 +1,8 @@
 window.onload = () => {
+    var renderer = new THREE.WebGLRenderer({
+        preserveDrawingBuffer: true
+    });
+    console.log("rendered", renderer)
     loadData();
     setInterval(() => {
         findDistance();
@@ -13,8 +17,7 @@ window.onload = () => {
     let take_snapshot_button = document.getElementById('take-snapshot');
 
     take_snapshot_button.onclick = function () {
-        var strMime = "image/jpeg";
-        var strDownloadMime = "image/octet-stream";
+        // var strMime = "image/jpeg";
         // // imgData = renderer.domElement.toDataURL(strMime);
         // var imgData = document.getElementsByClassName("a-canvas")[0].toDataURL();
 
@@ -23,32 +26,49 @@ window.onload = () => {
 
 
         let canvasNew = document.createElement('canvas');
-        let canvas = document.getElementsByClassName("a-canvas")[0];
-        // let canvas = document.querySelector('canvas');
         let video = document.getElementById("arjs-video");
 
         canvasNew.width = video.clientWidth;
         canvasNew.height = video.clientHeight;
 
         let ctx = canvasNew.getContext('2d');
-        // ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
-        ctx.drawImage(canvas, 0, 0, canvasNew.width, canvasNew.height);
-        console.log("ctx ", ctx)
 
+        //let imageVideo = video.toDataURL("image/png");
+        console.log("renderer", renderer.domElement)
+        //let imageAframe = renderer.domElement.toDataURL("image/png");
+        //console.log("imageAFrame", imageAframe)
+        var test = document.querySelector('a-scene').components.screenshot.getCanvas('perspective');
+
+
+        ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
+        ctx.drawImage(test, 0, 0, canvasNew.width, canvasNew.height);
+        //ctx.components.screenshot.capture('perspective')
         let imgData = canvasNew.toDataURL('image/png');
-
-        console.log("imgData", imgData)
         saveFile(imgData, "test.png");
 
-        // renderer = new THREE.WebGLRenderer({
-        //     preserveDrawingBuffer: true
-        // });
-        // renderer.setSize(video.innerWidth, video.innerHeight);
-        // document.body.appendChild(renderer.domElement);
+        // var aframeImageData = aframe.toDataURL("image/png");
 
-        // imgData = renderer.domElement.toDataURL(strMime);
+        // var aframeImageLoaded = new Image;
+        // aframeImageLoaded.onload = function () {
+        //     ctx.drawImage(video, 0, 0);
+        //     ctx.drawImage(aframeImageLoaded, 0, 0);
+        //     console.log("aframeImageLoaded", aframeImageLoaded)
+        //     let imgData = canvasNew.toDataURL('image/png');
+        //     saveFile(imgData, "test.png");
+        // };
+        // aframeImageLoaded.src = aframeImageData;
 
-        // saveFile(imgData.replace(strMime, strDownloadMime), "test2.jpg");
+
+
+        // ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
+        // ctx.drawImage(aframe, 0, 0, canvasNew.width, canvasNew.height);
+
+
+
+
+
+
+
 
 
 

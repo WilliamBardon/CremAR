@@ -7,7 +7,6 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <!-- Look-at component. We don't need this now, but we will later. -->
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <script src="./script.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -31,8 +30,9 @@
 
     <button id="gps-button" class="top-centered positions"> Posizione GPS corrente</button>
     <!-- Hello William! -->
-    <a-scene id="scene" vr-mode-ui="enabled: false" arjs='sourceType: webcam; videoTexture: false; debugUIEnabled: false; '
-        renderer='antialias: true; alpha: true' embedded>
+    <a-scene id="scene" vr-mode-ui="enabled: false" preserveDrawingBuffer='true'
+        arjs='sourceType: webcam; videoTexture: false; debugUIEnabled: false; ' renderer='antialias: true; alpha: true'
+        embedded>
         <a-camera gps-projected-camera="gpsMinDistance: 1" rotation-reader camera="far: 2; fov: 50"></a-camera>
 
         <!-- In front of camera -->
