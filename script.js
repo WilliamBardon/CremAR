@@ -107,7 +107,6 @@ function findDistance() {
     // let box = document.getElementById('box-duomo');
     let camPos = cam.object3D.position;
     // let boxPos = box.object3D.position;
-    // let distance = camPos.distanceTo(boxPos);
     // console.log("distance", distance);
     // const info = document.getElementById('distance')
     // info.innerHTML = distance;
@@ -133,7 +132,8 @@ function findDistance() {
 
     // alert(distanceMsg);
     document.querySelectorAll('a-box').forEach(x => {
-        if(x.object3D.position < 50) {
+        let distance = camPos.distanceTo(x.object3D.position);
+        if (distance < 50) {
             x.style.display = "none";
         } else {
             x.style.display = "block";
