@@ -34,6 +34,10 @@
     <a-scene id="scene" vr-mode-ui="enabled: false" arjs='sourceType: webcam; videoTexture: false; debugUIEnabled: false; '
         renderer='antialias: true; alpha: true' embedded>
         <a-camera gps-projected-camera="gpsMinDistance: 1" rotation-reader camera="far: 2; fov: 50"></a-camera>
+
+        <!-- In front of camera -->
+        <a-box position="-1 0.5 -60" rotation="0 45 0" color="#4CC3D9" foo="text: some overlay"></a-box>
+        <a-box position="-1.5 0.5 -40" rotation="0 45 0" color="#fff" foo="text: some overlay"></a-box>
         <!-- Piazza Duomo Cema -->
         <!-- <a-box id="box-duomo" gps-projected-entity-place='latitude: 45.3637721; longitude: 9.6959807'
             material='color: red' scale='10 10 10'></a-box> -->

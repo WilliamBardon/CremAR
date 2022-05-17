@@ -23,16 +23,17 @@ window.onload = () => {
 
 
         let canvasNew = document.createElement('canvas');
-        // let canvas = document.getElementsByClassName("a-canvas")[0];
-        let canvas = document.getElementById("scene");
+        let canvas = document.getElementsByClassName("a-canvas")[0];
+        // let canvas = document.querySelector('canvas');
         let video = document.getElementById("arjs-video");
 
         canvasNew.width = video.clientWidth;
         canvasNew.height = video.clientHeight;
 
         let ctx = canvasNew.getContext('2d');
-        ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
-        // ctx.drawImage(canvas, 0, 0, canvasNew.width, canvasNew.height);
+        // ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
+        ctx.drawImage(canvas, 0, 0, canvasNew.width, canvasNew.height);
+        console.log("ctx ", ctx)
 
         let imgData = canvasNew.toDataURL('image/png');
 
@@ -93,6 +94,7 @@ function renderModels(models) {
     models.forEach((model) => {
         let box = document.createElement('a-box');
         box.id = model.id;
+        box.setAttribute('visible', false);
         box.setAttribute('gps-projected-entity-place', `latitude: ${model.location.lat}; longitude: ${model.location.lng};`);
         box.setAttribute('material', `color: ${model.color}`);
         box.setAttribute('scale', '10 10 10');
@@ -132,11 +134,17 @@ function findDistance() {
 
     // alert(distanceMsg);
     document.querySelectorAll('a-box').forEach(x => {
+        console.log("box ", x);
         let distance = camPos.distanceTo(x.object3D.position);
-        if (distance < 50) {
-            x.style.display = "none";
+        console.log(" distance ", distance);
+        if (distance > 50) {
+            console.log("sono sopra i 50");
+            x.object3D.visible = false;
         } else {
-            x.style.display = "block";
+            console.log("sono sotto i 50");
+            // x.setAttribute('visible', true);
+            x.object3D.visible = true;
+
         }
     })
 }
