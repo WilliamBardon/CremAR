@@ -39,15 +39,15 @@ window.onload = () => {
         console.log("imgData", imgData)
         saveFile(imgData, "test.png");
 
-        renderer = new THREE.WebGLRenderer({
-            preserveDrawingBuffer: true
-        });
-        renderer.setSize(video.innerWidth, video.innerHeight);
-        document.body.appendChild(renderer.domElement);
+        // renderer = new THREE.WebGLRenderer({
+        //     preserveDrawingBuffer: true
+        // });
+        // renderer.setSize(video.innerWidth, video.innerHeight);
+        // document.body.appendChild(renderer.domElement);
 
-        imgData = renderer.domElement.toDataURL(strMime);
+        // imgData = renderer.domElement.toDataURL(strMime);
 
-        saveFile(imgData.replace(strMime, strDownloadMime), "test2.jpg");
+        // saveFile(imgData.replace(strMime, strDownloadMime), "test2.jpg");
 
 
 
@@ -104,13 +104,13 @@ function renderModels(models) {
 
 function findDistance() {
     let cam = document.querySelector("[camera]");
-    let box = document.getElementById('box-duomo');
+    // let box = document.getElementById('box-duomo');
     let camPos = cam.object3D.position;
-    let boxPos = box.object3D.position;
-    let distance = camPos.distanceTo(boxPos);
-    console.log("distance", distance);
-    const info = document.getElementById('distance')
-    info.innerHTML = distance;
+    // let boxPos = box.object3D.position;
+    // let distance = camPos.distanceTo(boxPos);
+    // console.log("distance", distance);
+    // const info = document.getElementById('distance')
+    // info.innerHTML = distance;
 
     // if (distance < 5) {
     //     // camera closer than 5m, do something
@@ -120,10 +120,10 @@ function findDistance() {
     // const info = document.getElementById('distance')
     // info.innerHTML = distanceMsg;
 
-    const distanceMD = document.getElementById('box-md').getAttribute('distanceMsg');
-    console.log("distanceMsg - MD", distanceMD);
-    const infoMD = document.getElementById('distance-md')
-    infoMD.innerHTML = distanceMD;
+    // const distanceMD = document.getElementById('box-md').getAttribute('distanceMsg');
+    // console.log("distanceMsg - MD", distanceMD);
+    // const infoMD = document.getElementById('distance-md')
+    // infoMD.innerHTML = distanceMD;
 
 
     // const distanceRivolta = document.getElementById('box-rivolta').getAttribute('distanceMsg');
@@ -132,6 +132,13 @@ function findDistance() {
     // infoRivolta.innerHTML = distanceRivolta;
 
     // alert(distanceMsg);
+    document.querySelectorAll('a-box').forEach(x => {
+        if(x.object3D.position < 50) {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    })
 }
 
 
