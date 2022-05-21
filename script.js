@@ -25,7 +25,7 @@ window.onload = () => {
 
         //document.querySelector('a-scene').components.screenshot.capture('perspective')
 
-
+        console.log("cliccato")
         let canvasNew = document.createElement('canvas');
         let video = document.getElementById("arjs-video");
 

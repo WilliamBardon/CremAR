@@ -73,6 +73,16 @@
     box-shadow: 0 0 5px black;
 }
 
+#take-snapshot {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+}
+
 @media screen and (orientation: landscape) {
     html {
       /* Rotate the content container */
