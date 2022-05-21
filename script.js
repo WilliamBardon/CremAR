@@ -1,4 +1,5 @@
 window.onload = () => {
+    screen.orientation.lock('portrait');
     var renderer = new THREE.WebGLRenderer({
         preserveDrawingBuffer: true
     });
