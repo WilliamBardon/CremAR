@@ -41,7 +41,7 @@ window.onload = () => {
 
 
         ctx.drawImage(video, 0, 0, canvasNew.width, canvasNew.height);
-        ctx.drawImage(test, 0, 0, canvasNew.width, canvasNew.height);
+        ctx.drawImage(test, 0, 0,  canvasNew.height, canvasNew.width);
         //ctx.components.screenshot.capture('perspective')
         let imgData = canvasNew.toDataURL('image/png');
         saveFile(imgData, "test.png");
